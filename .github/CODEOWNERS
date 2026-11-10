@@ -1,0 +1,30 @@
+# Responsables par zone (voir docs/equipe.md) : GitHub demande automatiquement
+# leur relecture quand une pull request touche ces fichiers.
+#
+# À faire : remplacer @responsable-zone-a, etc. par les vrais pseudos GitHub.
+# Tant que ce n'est pas fait, laisser l'option « Require review from Code Owners »
+# désactivée (c'est le cas avec scripts/configurer-github.sh).
+
+# Zone A — Socle et qualité
+/api/src/middlewares/        @responsable-zone-a
+/api/src/shared/             @responsable-zone-a
+/web/src/shared/             @responsable-zone-a
+/docs/contrat-api.md         @responsable-zone-a
+/.github/                    @responsable-zone-a
+package.json                 @responsable-zone-a
+
+# Zone B — Comptes et moments
+/api/src/modules/comptes/    @responsable-zone-b
+/api/src/modules/moments/    @responsable-zone-b
+/api/migrations/             @responsable-zone-b
+/web/src/features/comptes/   @responsable-zone-b
+/web/src/features/moments/   @responsable-zone-b
+
+# Zone C — Direct et lecture
+/api/src/modules/stations/   @responsable-zone-c
+/web/src/features/direct/    @responsable-zone-c
+/web/src/features/lecteur/   @responsable-zone-c
+
+# Zone D — Guide et soutenance
+/api/src/modules/guide/      @responsable-zone-d
+/web/src/features/guide/     @responsable-zone-d

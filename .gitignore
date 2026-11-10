@@ -1,0 +1,23 @@
+# Dépendances et builds
+node_modules/
+dist/
+build/
+coverage/
+
+# Secrets : jamais sur GitHub
+.env
+.env.*
+!.env.example
+
+# Réglages personnels et fichiers système
+.claude/settings.local.json
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Fichiers lourds : à héberger ailleurs
+*.mp3
+*.wav
+*.mp4
