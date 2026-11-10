@@ -1,5 +1,7 @@
 # Accord d'équipe
 
+> Statut : proposition, à valider par les 4 membres en réunion de lancement (ELT-8).
+
 À valider ensemble lors de la réunion de lancement (45 minutes). Toute modification ensuite se fait par pull request.
 
 ## Membres et disponibilités réelles
