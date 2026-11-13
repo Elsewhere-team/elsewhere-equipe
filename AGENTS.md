@@ -57,7 +57,7 @@ Ces fichiers concernent toute l'équipe. S'arrêter et demander avant d'y touche
 - `docs/contrat-api.md` et les types partagés entre l'API et l'interface
 - `api/migrations/` et le schéma de la base
 - `.github/`
-- `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `docs/equipe.md`, `.claude/skills/`
+- `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `HARNAIS.md`, `docs/equipe.md`, `.claude/skills/`, `.cursor/`
 
 Ne jamais ajouter de bibliothèque sans l'accord de l'humain, avec une explication de son utilité.
 
@@ -91,8 +91,14 @@ Ne jamais ajouter de bibliothèque sans l'accord de l'humain, avec une explicati
 
 ## Procédures
 
-Rangées dans `.claude/skills/`. Claude Code les charge tout seul. Un autre agent lit le fichier `SKILL.md` correspondant quand la situation se présente.
+Rangées dans `.claude/skills/`. Claude Code les charge tout seul ; Cursor les appelle avec les commandes `/<nom>` de `.cursor/commands/`, sans les recopier (voir `HARNAIS.md`). Un autre agent lit le fichier `SKILL.md` correspondant quand la situation se présente.
 
+- `point-projet` : en début de session ou de semaine, pour savoir où en est le projet et quel ticket prendre dans sa zone.
 - `nouvelle-fonctionnalite` : pour coder un ticket.
 - `relecture-avant-pr` : avant d'ouvrir une pull request, et pour relire celle d'un autre membre.
+- `expliquer-code` : dès qu'un code est validé, pour l'expliquer et vérifier qu'on sait l'expliquer sans regarder.
 - `fin-de-session` : à la fin de chaque session de travail.
+
+## Façon de travailler
+
+Avec un membre de l'équipe, suivre `.cursor/rules/binome.mdc` (la règle vaut aussi pour Claude Code). Les préférences personnelles de chacun restent dans ses propres réglages, hors du dépôt. L'organisation du harnais IA est décrite dans `HARNAIS.md`.

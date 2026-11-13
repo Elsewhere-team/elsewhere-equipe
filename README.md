@@ -6,7 +6,8 @@ Application d'écoute des radios du monde, construite par une équipe de 4 appre
 
 1. Lire `docs/equipe.md` : qui fait quoi, comment on décide, le calendrier.
 2. Lire `CONTRIBUTING.md` : nommage, tickets, branches et worktrees, commits, pull requests.
-3. Si vous codez avec un agent (Cursor, Claude Code…) : il lit `AGENTS.md` automatiquement. Les procédures pas à pas sont dans `.claude/skills/`.
+3. Si vous codez avec un agent, lire `HARNAIS.md`. Claude Code lit `AGENTS.md` automatiquement ; dans Cursor, taper `/` pour voir les cinq commandes du projet : `/point-projet`, `/nouvelle-fonctionnalite`, `/relecture-avant-pr`, `/expliquer-code`, `/fin-de-session`.
+4. Avant de prendre un ticket : `/point-projet` (ou le skill du même nom) indique le prochain ticket conseillé dans votre zone.
 
 ## Outils
 
@@ -16,6 +17,7 @@ Application d'écoute des radios du monde, construite par une équipe de 4 appre
 | Code, pull requests, relectures | GitHub |
 | Éditeur et agent de code | Cursor ou Claude Code |
 | Un worktree par ticket | Orca, ou `git worktree` |
+| Règles et procédures des agents IA | `AGENTS.md`, `.claude/skills/`, `.cursor/` (voir `HARNAIS.md`) |
 | Décisions techniques | `docs/decisions/` dans ce dépôt |
 
 ## Stack
@@ -34,3 +36,7 @@ cp .env.example .env    # puis remplir les valeurs
 # lancer l'API :
 # lancer l'interface :
 ```
+
+## Licence
+
+MIT, au nom des contributeurs du projet : voir `LICENSE`.

@@ -1,17 +1,36 @@
 ---
 name: fin-de-session
-description: Clore une session de travail sur Elsewhere (équipe) : état du ticket, point écrit pour l'équipe, nettoyage. À utiliser à la fin de chaque session de travail.
+description: Clôturer une session de travail sur Elsewhere (équipe) en cinq minutes : état des lieux Git et GitHub, Definition of Done du ticket en cours, mises à jour Linear, point quotidien pour le canal d'équipe, nettoyage des worktrees et reprise. À utiliser à la fin de chaque session de travail.
 ---
 
 # Fin de session
 
-1. Résumer en trois lignes ce qui a été fait pendant la session, sur quel ticket `ELT-<numéro>`.
-2. Vérifier l'état du dépôt : rien de non commité qui devrait l'être, aucun fichier temporaire ni secret prêt à partir.
-3. Si le travail n'est pas fini : pousser la branche pour qu'il ne reste pas uniquement sur ce poste, et noter dans un commentaire du ticket Linear où on s'est arrêté et la prochaine étape.
-4. Rédiger le point quotidien pour le canal d'équipe, au format :
-   - **Fait** : …
+Objectif : ne rien perdre, tenir l'équipe au courant et savoir exactement par quoi reprendre. Rester bref : cinq minutes.
+
+## Étapes
+
+1. **État des lieux** :
+   - worktrees : `git worktree list`, puis `git -C <chemin> status --short` pour chacun ;
+   - commits du jour, toutes branches : `git log --all --since=midnight --oneline --author="<nom>"` ;
+   - branches poussées ou non : `git status -sb` dans le worktree du ticket (« ahead » = commits pas encore sur GitHub) ;
+   - pull requests du membre et relectures qu'on attend de lui : `gh pr list --author @me` et `gh pr list --search "review-requested:@me"`.
+2. **Ne rien perdre** : s'il reste des modifications non commitées, proposer un commit de travail en cours sur la branche du ticket (jamais sur `main`), puis `git push` pour que le travail ne reste pas sur un seul poste.
+3. **Definition of Done du ticket en cours** : parcourir les cases de `.github/pull_request_template.md` une par une et dire pour chacune **fait**, **sans objet** (mention autorisée par `CONTRIBUTING.md`) ou **à faire**. Ce qui reste à faire devient la première action de la prochaine session.
+4. **Linear** — proposer :
+   - un commentaire sur le ticket en cours : fait, reste à faire, blocage ;
+   - pour un ticket dont l'échéance est dépassée : le signaler et préparer la décision à prendre au point hebdomadaire (reporter, réduire, abandonner).
+   Les statuts avancent tout seuls avec l'intégration GitHub (`CONTRIBUTING.md`) : ne pas les changer à la main, sauf un ticket à plusieurs PR refermé trop tôt, à rouvrir.
+5. **Point quotidien** pour le canal d'équipe, au format :
+   - **Fait** : … (avec les liens des PR)
    - **Prévu** : …
    - **Bloqué** : … (ou « rien »)
-5. Si une décision a été prise pendant la session, vérifier qu'elle est écrite dans `docs/decisions/`.
-6. Si une PR a été fusionnée : proposer de supprimer son worktree et sa branche locale (`git branch -D`, voir `CONTRIBUTING.md`).
-7. Proposer les mises à jour de Linear (commentaire, échéance, ticket à découper) et ne les faire qu'après accord de l'humain.
+6. **Décisions** : si une décision a été prise pendant la session, vérifier qu'elle est écrite dans `docs/decisions/`.
+7. **Nettoyage** : pour chaque PR fusionnée (`gh pr list --state merged --author @me`), proposer de supprimer son worktree (`git worktree remove <chemin>`, ou depuis Orca) puis sa branche locale (`git branch -D <branche>`, voir `CONTRIBUTING.md`).
+8. **Reprise**, en trois lignes au plus : le prochain ticket (voir le skill `point-projet`), la première action concrète, le blocage éventuel.
+9. **Écrire dans Linear et pousser seulement après l'accord du membre**, en une seule fois.
+
+## Règles
+
+- Aucun secret dans Linear ni sur le canal d'équipe.
+- Ne jamais supprimer un worktree qui contient des modifications non commitées.
+- Ne pas traiter un arrêt comme un échec : constater, décider, reprendre.

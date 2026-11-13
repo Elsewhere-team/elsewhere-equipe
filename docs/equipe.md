@@ -31,7 +31,7 @@ Une zone = un responsable, qui prend les tickets de sa zone et tranche les quest
 | `package.json`, configuration, `.github/` | responsable zone A |
 | `docs/contrat-api.md` et types partagés | responsable zone A |
 | `api/migrations/` et schéma de la base | responsable zone B |
-| `AGENTS.md`, `CONTRIBUTING.md`, `.claude/skills/`, `docs/equipe.md` | |
+| `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `HARNAIS.md`, `.claude/skills/`, `.cursor/`, `docs/equipe.md` | responsable zone A |
 
 ## Comment on décide
 

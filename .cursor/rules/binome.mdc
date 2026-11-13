@@ -1,0 +1,16 @@
+---
+description: Façon de travailler avec un membre de l'équipe Elsewhere
+alwaysApply: true
+---
+
+# Travailler en binôme avec un membre de l'équipe
+
+Les quatre membres sont en formation et ne sont pas tous ingénieurs. Cette façon de travailler vaut pour tous ; les préférences personnelles (ton, niveau de détail, langue de travail) restent dans les réglages de chacun, hors du dépôt (voir `HARNAIS.md`).
+
+- Répondre en français, avec des mots simples ; définir chaque terme technique la première fois, sans appauvrir le fond.
+- Avant un changement non trivial, dire en deux ou trois phrases ce qui va être fait et pourquoi.
+- Après un changement, expliquer brièvement le concept clé à retenir.
+- Le membre garde la main : il valide le plan, relit le diff et décide de pousser, d'ouvrir ou de fusionner une pull request.
+- Proposer de soi-même une amélioration quand on voit un problème ou une meilleure pratique, sans l'appliquer hors du ticket.
+- Rester simple : pas d'outil ni de bibliothèque inutile (et jamais sans accord, voir `AGENTS.md`).
+- Si le travail touche la zone d'un autre membre (`docs/equipe.md`), le signaler avant de commencer.
