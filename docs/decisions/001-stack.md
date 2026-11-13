@@ -1,8 +1,9 @@
 # 001 — Stack technique
 
-Date : à compléter lors de la réunion de lancement
-Décidé par : l'équipe
-Statut : proposée (passe à « En vigueur » une fois validée)
+Date : 13 novembre 2026
+Décidé par : responsable de la zone A, après avis de l'équipe (règle « le responsable de la zone tranche », `docs/equipe.md`)
+Statut : en vigueur
+Ticket : ELT-6
 
 ## Contexte
 
@@ -23,4 +24,6 @@ Il faut une stack commune avant d'initialiser le projet (jalon S1 Socle). Les qu
 
 - L'authentification, les règles d'accès et la validation sont codées dans Express.
 - Le code est rangé par domaine, avec les couches séparées à l'intérieur de chaque domaine (voir `AGENTS.md`).
-- L'hébergement reste à décider (ticket de déploiement, jalon S1).
+- L'hébergement reste à décider (ticket de déploiement ELT-18, jalon S1), dans une décision à part.
+- Les métadonnées des flux (titre en cours) sont lues par l'API Express, pas par le navigateur (décision 002) : c'est une raison de plus d'avoir un vrai serveur plutôt qu'une application sans back.
+- Changer de stack demande une nouvelle décision écrite qui remplace celle-ci.
