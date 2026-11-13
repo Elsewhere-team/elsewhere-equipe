@@ -1,0 +1,11 @@
+# Fins de ligne LF pour tous les fichiers texte, quel que soit le système
+* text=auto eol=lf
+
+# Scripts shell : toujours LF, sinon ils ne s'exécutent pas sous Linux
+*.sh text eol=lf
+
+# Fichiers binaires : jamais modifiés par Git
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
