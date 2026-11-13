@@ -40,7 +40,7 @@ Ces fichiers impactent toute l'équipe. Toute modification passe par une pull re
 - `docs/contrat-api.md` et les types partagés entre l'API et l'interface
 - `api/migrations/` : un seul responsable, celui de la base
 - `.github/`
-- `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `docs/equipe.md`, `.claude/skills/`
+- `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `HARNAIS.md`, `docs/equipe.md`, `.claude/skills/`, `.cursor/`
 
 ## Ce qui n'entre jamais dans le dépôt
 
@@ -60,6 +60,7 @@ https://linear.app/teamels/project/elsewhere-mvp-soutenance-14-dec-equipe-8cc932
 - Un ticket a un seul responsable. On ne prend un ticket qu'en s'en mettant responsable dans Linear.
 - Un sprint correspond à un jalon du projet Linear (par exemple « S1 Socle »).
 - Les statuts avancent tout seuls grâce à l'intégration GitHub de Linear : *In Progress* quand la branche est poussée, *In Review* quand la PR est ouverte, *Done* quand elle est fusionnée.
+- Un ticket peut demander plusieurs PR. Chaque PR sauf la dernière écrit `Part of ELT-<numéro>` dans sa description : Linear la relie au ticket sans le fermer à la fusion. La dernière écrit `Closes ELT-<numéro>`.
 - Un ticket qui dépasse son échéance est signalé au point hebdomadaire, avec une décision : reporter, réduire ou abandonner.
 
 ## Branches
@@ -74,7 +75,7 @@ Une branche par ticket, créée depuis `main` à jour, avec le nom proposé par 
 Linear reconnaît ce format et relie tout seul la branche et la pull request au ticket.
 Une branche vit un ou deux jours au plus : au-delà, on découpe le ticket.
 
-Chaque ticket a son propre **worktree** : un dossier séparé, relié au même dépôt Git, qui a sa branche à lui. On le crée avec Orca (nom affiché commençant par `ELT-<numéro>`) ou, sans Orca, avec :
+Chaque ticket a son propre **worktree** : un dossier séparé, relié au même dépôt Git, qui a sa branche à lui. On le crée avec Orca, en nommant le worktree `ELT-<numéro> <titre court>` (par exemple `ELT-21 Consentement`) pour le retrouver d'un coup d'œil, sur la branche au nom proposé par Linear. Sans Orca :
 
 ```
 git worktree add ../elsewhere-equipe-elt-<numéro> -b <nom-de-branche-linear> origin/main
@@ -111,7 +112,10 @@ Exemple : `feat: affiche le titre en cours d'une station (ELT-21)`
 - Le titre de la PR reprend le format des commits.
 - Les PR sont fusionnées en squash : tous leurs commits deviennent un seul commit sur `main`, dont le message est le titre de la PR, suivi de son numéro ajouté par GitHub (par exemple `(#3)`). On obtient ainsi une ligne par ticket dans l'historique. GitHub est configuré pour n'autoriser que ce mode (`scripts/configurer-github.sh`).
 - La description suit le modèle `.github/pull_request_template.md`, qui contient la Definition of Done. Une PR n'est fusionnée que lorsque toutes ses cases sont cochées.
-- Une case qui ne s'applique pas est cochée et suivie de la mention `(sans objet : documentation uniquement)`. Seules les cases liées au code (tests, commentaires) peuvent l'être, et seulement si le diff ne contient que de la documentation.
+- Une case qui ne s'applique pas est cochée et suivie d'une de ces deux mentions, et d'aucune autre :
+  - `(sans objet : documentation uniquement)`, si le diff ne contient que de la documentation ;
+  - `(sans objet : script d'enquête hors application)`, si le diff ne contient que de la documentation et un **script d'enquête** : un script rangé dans `scripts/`, lancé à la main pour mesurer quelque chose (par exemple `scripts/test-metadonnees-icy.js`), qui ne fait pas partie de l'application et n'est appelé par aucun code de `api/` ou `web/`.
+- Seules les cases liées au code (tests, commentaires) peuvent être « sans objet ».
 - Petites PR : si un agent a modifié des fichiers hors du ticket, on les retire avant d'ouvrir la PR.
 
 ## Relecture
