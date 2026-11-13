@@ -3,6 +3,21 @@
 Ce fichier fixe les conventions du dépôt. Elles s'appliquent à tout le code, qu'il soit écrit à la main ou avec un agent.
 Les règles destinées aux agents sont dans `AGENTS.md`, l'organisation de l'équipe dans `docs/equipe.md`.
 
+## Environnement
+
+Pour que les quatre postes (Linux, macOS ou Windows) produisent exactement le même code, trois fichiers à la racine fixent les réglages communs :
+
+- `.nvmrc` : la version de Node (26, version LTS active). Lancer `nvm use` en entrant dans le dossier.
+- `.gitattributes` : fins de ligne LF partout, pour qu'un fichier modifié sous Windows n'apparaisse pas entièrement modifié dans le diff.
+- `.editorconfig` : UTF-8, 2 espaces, retour à la ligne final. Installer l'extension EditorConfig si l'éditeur ne la gère pas nativement (Cursor et VS Code : extension « EditorConfig for VS Code »).
+
+Règles :
+
+- Node : la version de `.nvmrc`. Chaque `package.json` déclare `"engines": { "node": ">=26" }` (ajouté à l'initialisation du projet, ELT-13).
+- Gestionnaire de paquets : **npm uniquement**. Jamais yarn ni pnpm : leurs fichiers de dépendances contrediraient `package-lock.json`.
+- `package-lock.json` est toujours commité. En cas de conflit dessus, on le régénère avec `npm install`, on ne le corrige jamais à la main.
+- Sous Windows, une fois : `git config --global core.autocrlf false`, puis recloner le dépôt.
+
 ## Nommage dans le code
 
 | Élément | Convention | Exemple |
